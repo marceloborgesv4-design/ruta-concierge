@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Rio de Janeiro — Guia Completo | Ruta Concierge</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ocre:#C8922A; --terracota:#C1440E; --quentao:#D4622A;
+  --sepia:#704214; --palmeira:#5C7A3E; --alcaparra:#4A6741;
+  --doce-mamao:#E8A87C; --floresta:#2D4A2D;
+  --creme:#F5ECD7; --creme2:#F9F5F0; --escuro:#3A2415;
+  --texto:#2C1A0E; --texto2:#6B4C35;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--creme2);color:var(--texto);line-height:1.6;}
+@media print{
+  nav,.no-print{display:none!important;}
+  .cover{height:auto;padding:5rem 2rem 3rem;}
+  .cover-bg,.cover-overlay{display:none;}
+  .cover-content{color:var(--escuro);}
+  .cover-title{color:var(--escuro);}
+  .cover-title em{color:var(--ocre);}
+  section{page-break-inside:avoid;}
+  .zona-section{page-break-before:always;}
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:.7rem 2rem;background:rgba(26,16,8,.96);backdrop-filter:blur(8px);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--creme);letter-spacing:2px;text-decoration:none;}
+.nav-r{display:flex;gap:1rem;align-items:center;}
+.nav-r a{color:rgba(245,236,215,.55);text-decoration:none;font-size:.72rem;letter-spacing:1px;text-transform:uppercase;transition:color .3s;}
+.nav-r a:hover{color:var(--ocre);}
+.btn-pdf{background:none;border:1px solid rgba(200,146,42,.45);color:var(--ocre);padding:.35rem .85rem;font-size:.7rem;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;font-family:'Inter',sans-serif;transition:all .3s;}
+.btn-pdf:hover{background:var(--ocre);color:var(--escuro);}
+
+/* CAPA */
+.cover{height:100vh;min-height:600px;position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.cover-bg{position:absolute;inset:0;background-image:url('imagens/Cristo-Redentor-RJ_Brasil.jpg');background-size:cover;background-position:center 30%;filter:brightness(.52) saturate(.88) sepia(.12);}
+.cover-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,16,8,.97) 0%,rgba(26,16,8,.15) 65%);}
+.cover-content{position:relative;z-index:2;padding:4rem 2rem;max-width:1000px;margin:0 auto;width:100%;}
+.cover-label{font-size:.68rem;letter-spacing:5px;text-transform:uppercase;color:var(--ocre);display:block;margin-bottom:1rem;}
+.cover-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6rem);color:var(--creme);line-height:1;margin-bottom:.5rem;}
+.cover-title em{color:var(--ocre);font-style:italic;}
+.cover-sub{font-size:.9rem;color:rgba(245,236,215,.55);letter-spacing:3px;text-transform:uppercase;margin-bottom:2rem;}
+.cover-stats{display:flex;gap:2.5rem;flex-wrap:wrap;}
+.stat{text-align:center;}
+.stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--ocre);display:block;line-height:1;}
+.stat-label{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:rgba(245,236,215,.4);margin-top:.2rem;}
+.cover-contact{position:absolute;top:5rem;right:2rem;z-index:2;text-align:right;}
+.cover-contact p{font-size:.72rem;color:rgba(245,236,215,.4);line-height:1.8;}
+.cover-contact a{color:rgba(245,236,215,.4);text-decoration:none;}
+
+/* ÍNDICE */
+.indice{background:var(--creme);border-bottom:1px solid rgba(200,146,42,.15);}
+.indice-toggle{width:100%;display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;max-width:1000px;margin:0 auto;}
+.indice-toggle-label{font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:var(--ocre);}
+.indice-toggle-arrow{font-size:.8rem;color:var(--ocre);transition:transform .3s;}
+.indice-toggle.open .indice-toggle-arrow{transform:rotate(180deg);}
+.indice-body{display:none;padding:0 2rem 1.5rem;}
+.indice-body.open{display:block;}
+.indice-inner{max-width:1000px;margin:0 auto;}
+.indice-grid{display:grid;grid-template-columns:1fr 1fr;gap:.25rem 3rem;}
+.indice-grid a{display:flex;justify-content:space-between;align-items:center;color:var(--texto2);text-decoration:none;font-size:.78rem;padding:.28rem 0;border-bottom:1px dotted rgba(200,146,42,.15);transition:color .2s;}
+.indice-grid a:hover{color:var(--ocre);}
+.indice-grid a span{font-size:.65rem;color:rgba(200,146,42,.35);}
+
+/* CONTAINER */
+.wrap{max-width:1000px;margin:0 auto;padding:0 2rem;}
+
+/* SEÇÕES */
+.sec{padding:4rem 2rem;}
+.sec-creme{background:var(--creme);}
+.sec-creme2{background:var(--creme2);}
+.sec-escuro{background:var(--escuro);color:var(--creme);}
+.sec-sepia{background:var(--sepia);color:var(--creme);}
+.sec-floresta{background:var(--floresta);color:var(--creme);}
+.sec-azul{background:#2B3F5C;color:var(--creme);}
+.sec-terracota{background:var(--terracota);color:var(--creme);}
+
+.lbl{font-size:.65rem;letter-spacing:4px;text-transform:uppercase;color:var(--ocre);display:block;margin-bottom:.5rem;}
+.sec-escuro .lbl,.sec-sepia .lbl,.sec-floresta .lbl,.sec-azul .lbl,.sec-terracota .lbl{color:var(--doce-mamao);}
+h2.h{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);line-height:1.2;margin-bottom:1.5rem;}
+.sec-escuro h2.h,.sec-sepia h2.h,.sec-floresta h2.h,.sec-azul h2.h,.sec-terracota h2.h{color:var(--creme);}
+
+/* INTRO */
+.intro-box{background:rgba(200,146,42,.08);border-left:3px solid var(--ocre);padding:1.2rem 1.5rem;border-radius:0 3px 3px 0;margin-bottom:1.5rem;}
+.intro-box p{font-size:.88rem;color:var(--texto);line-height:1.7;}
+.intro-box strong{color:var(--ocre);}
+.info-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(200,146,42,.15);border-radius:3px;overflow:hidden;margin-top:1.5rem;}
+.info-item{background:var(--creme2);padding:1rem;text-align:center;}
+.info-item .i-label{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-bottom:.3rem;}
+.info-item .i-val{font-size:.85rem;font-weight:600;color:var(--texto);}
+
+/* CLIMA TABLE */
+.clima-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-bottom:1.5rem;}
+.clima-table th{text-align:left;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);padding:.5rem .7rem;border-bottom:2px solid rgba(200,146,42,.2);}
+.clima-table td{padding:.55rem .7rem;border-bottom:1px solid rgba(200,146,42,.1);color:var(--texto);}
+.clima-table tr:last-child td{border-bottom:none;}
+.clima-table tr:hover td{background:rgba(200,146,42,.04);}
+.tag-ok{color:var(--palmeira);font-weight:600;}
+.tag-warn{color:var(--quentao);}
+.tag-bad{color:var(--texto2);}
+.clima-dicas{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.clima-dica-box{background:rgba(200,146,42,.07);border-radius:3px;padding:1.2rem;}
+.clima-dica-box h4{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);margin-bottom:.7rem;}
+.clima-dica-box ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.clima-dica-box li{font-size:.8rem;color:var(--texto);padding-left:1rem;position:relative;line-height:1.5;}
+.clima-dica-box li::before{content:'—';position:absolute;left:0;color:rgba(200,146,42,.5);font-size:.7rem;}
+
+/* TRANSPORTE */
+.trans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.trans-card{background:rgba(245,236,215,.06);border:1px solid rgba(245,236,215,.12);border-radius:3px;padding:1.3rem;}
+.trans-card h4{font-size:.85rem;font-weight:600;color:var(--creme);margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid rgba(245,236,215,.1);}
+.trans-card ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+.trans-card li{font-size:.78rem;color:rgba(245,236,215,.7);padding-left:.9rem;position:relative;line-height:1.5;}
+.trans-card li::before{content:'—';position:absolute;left:0;color:rgba(200,146,42,.4);font-size:.65rem;}
+.trans-card .preco{font-size:.72rem;color:var(--doce-mamao);font-weight:600;margin-top:.5rem;}
+.riocard-box{background:rgba(200,146,42,.12);border:1px solid rgba(200,146,42,.25);border-radius:3px;padding:1rem 1.3rem;margin-top:1.5rem;}
+.riocard-box p{font-size:.82rem;color:rgba(245,236,215,.8);line-height:1.6;}
+
+/* ZONAS NAV */
+.zonas-nav{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;}
+.zona-pill{background:rgba(200,146,42,.1);border:1px solid rgba(200,146,42,.25);color:var(--ocre);font-size:.72rem;letter-spacing:1px;padding:.35rem .8rem;border-radius:20px;text-decoration:none;transition:all .3s;}
+.zona-pill:hover,.zona-pill.active{background:var(--ocre);color:var(--escuro);}
+
+/* PONTOS */
+.pontos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;}
+.ponto-card{background:var(--creme2);border-radius:3px;overflow:hidden;border:1px solid rgba(200,146,42,.12);transition:box-shadow .3s;}
+.ponto-card:hover{box-shadow:0 4px 16px rgba(26,16,8,.1);}
+.ponto-img{width:100%;height:160px;object-fit:cover;filter:saturate(.85) sepia(.08);}
+.ponto-body{padding:1.1rem;}
+.ponto-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.5rem;}
+.ponto-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:rgba(200,146,42,.25);line-height:1;flex-shrink:0;}
+.ponto-nome{font-weight:600;font-size:.92rem;color:var(--texto);line-height:1.3;}
+.ponto-badges{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.6rem;}
+.badge{font-size:.6rem;letter-spacing:1px;text-transform:uppercase;padding:.2rem .5rem;border-radius:2px;font-weight:600;}
+.badge-imp{background:rgba(200,146,42,.15);color:var(--ocre);}
+.badge-free{background:rgba(92,122,62,.15);color:var(--palmeira);}
+.badge-pago{background:rgba(193,68,14,.1);color:var(--terracota);}
+.badge-nat{background:rgba(45,74,45,.15);color:var(--floresta);}
+.ponto-meta{display:flex;flex-direction:column;gap:.25rem;}
+.ponto-meta span{font-size:.75rem;color:var(--texto2);line-height:1.4;}
+.ponto-dica{font-size:.75rem;color:var(--palmeira);background:rgba(92,122,62,.07);border-left:2px solid var(--palmeira);padding:.4rem .7rem;margin-top:.6rem;line-height:1.5;}
+
+/* ROTEIRO DIAS */
+.dia-card{background:var(--creme2);border-radius:3px;overflow:hidden;border:1px solid rgba(200,146,42,.12);margin-bottom:1.5rem;}
+.dia-header{display:grid;grid-template-columns:auto 1fr auto;gap:1.5rem;align-items:center;padding:1.2rem 1.5rem;background:var(--creme);border-bottom:1px solid rgba(200,146,42,.12);}
+.dia-n{font-family:'Playfair Display',serif;font-size:2.5rem;color:rgba(200,146,42,.2);line-height:1;}
+.dia-info .dia-titulo{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);}
+.dia-info .dia-sub{font-size:.75rem;color:var(--texto2);margin-top:.15rem;}
+.dia-custo{text-align:right;}
+.dia-custo .custo-label{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);}
+.dia-custo .custo-val{font-family:'Playfair Display',serif;font-size:1rem;color:var(--ocre);}
+.ativs{display:flex;flex-direction:column;}
+.atv{display:grid;grid-template-columns:64px 1fr;border-bottom:1px solid rgba(200,146,42,.08);}
+.atv:last-child{border-bottom:none;}
+.atv-h{padding:.9rem .5rem;text-align:center;font-size:.7rem;color:var(--ocre);font-weight:600;border-right:1px solid rgba(200,146,42,.08);display:flex;align-items:flex-start;justify-content:center;padding-top:1rem;}
+.atv-b{padding:.9rem 1.2rem;}
+.atv-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.8rem;margin-bottom:.25rem;}
+.atv-nome{font-weight:600;font-size:.88rem;color:var(--texto);}
+.atv-p{font-size:.65rem;color:var(--palmeira);background:rgba(92,122,62,.1);padding:.15rem .45rem;border-radius:2px;white-space:nowrap;font-weight:600;flex-shrink:0;}
+.atv-p.pg{color:var(--terracota);background:rgba(193,68,14,.08);}
+.atv-desc{font-size:.8rem;color:var(--texto2);line-height:1.6;margin-bottom:.3rem;}
+.atv-meta{font-size:.7rem;color:rgba(44,26,14,.4);}
+.atv-dica{font-size:.74rem;color:var(--palmeira);border-left:2px solid var(--palmeira);padding:.35rem .65rem;margin-top:.45rem;background:rgba(92,122,62,.06);line-height:1.5;}
+
+/* HOTÉIS */
+.hotel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.hotel-card{background:rgba(245,236,215,.06);border:1px solid rgba(245,236,215,.1);border-radius:3px;padding:1.3rem;transition:border-color .3s;}
+.hotel-card:hover{border-color:rgba(200,146,42,.4);}
+.hotel-tipo{font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--doce-mamao);margin-bottom:.3rem;}
+.hotel-nome{font-family:'Playfair Display',serif;font-size:1rem;color:var(--creme);margin-bottom:.2rem;}
+.hotel-stars{font-size:.72rem;color:var(--ocre);margin-bottom:.3rem;}
+.hotel-bairro{font-size:.7rem;color:rgba(245,236,215,.4);margin-bottom:.6rem;}
+.hotel-meta{list-style:none;display:flex;flex-direction:column;gap:.3rem;margin-bottom:.7rem;}
+.hotel-meta li{font-size:.75rem;color:rgba(245,236,215,.65);padding-left:.9rem;position:relative;line-height:1.4;}
+.hotel-meta li::before{content:'—';position:absolute;left:0;color:rgba(200,146,42,.35);font-size:.65rem;}
+.hotel-preco{font-size:.8rem;color:var(--ocre);font-weight:600;}
+.hotel-nota{font-size:.75rem;color:rgba(245,236,215,.5);margin-top:.5rem;font-style:italic;line-height:1.4;}
+
+/* RESTAURANTES */
+.rest-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.rest-card{background:var(--creme2);border-radius:3px;padding:1.2rem;border:1px solid rgba(200,146,42,.12);display:flex;gap:1rem;}
+.rest-icon{font-size:1.6rem;flex-shrink:0;}
+.rest-nome{font-weight:600;font-size:.88rem;color:var(--texto);margin-bottom:.15rem;}
+.rest-tipo{font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);margin-bottom:.3rem;}
+.rest-meta{font-size:.75rem;color:var(--texto2);line-height:1.6;}
+.rest-preco{font-size:.72rem;color:var(--palmeira);font-weight:600;margin-top:.3rem;}
+
+/* SEGURANÇA */
+.seg-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.seg-box{background:rgba(245,236,215,.06);border-radius:3px;padding:1.3rem;}
+.seg-box h4{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:.8rem;}
+.seg-ok h4{color:#7EC8A0;}
+.seg-warn h4{color:var(--doce-mamao);}
+.seg-em h4{color:var(--creme);}
+.seg-box ul{list-style:none;display:flex;flex-direction:column;gap:.35rem;}
+.seg-box li{font-size:.78rem;color:rgba(245,236,215,.7);padding-left:1rem;position:relative;line-height:1.4;}
+.seg-ok li::before{content:'✓';position:absolute;left:0;color:#7EC8A0;font-size:.7rem;}
+.seg-warn li::before{content:'—';position:absolute;left:0;color:var(--doce-mamao);font-size:.7rem;}
+.seg-em li::before{content:'—';position:absolute;left:0;color:rgba(245,236,215,.3);font-size:.7rem;}
+
+/* DICAS */
+.dicas-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.dica-box{background:var(--creme);border-radius:3px;padding:1.3rem;border:1px solid rgba(200,146,42,.12);}
+.dica-box h4{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid rgba(200,146,42,.15);}
+.dica-box ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+.dica-box li{font-size:.8rem;color:var(--texto);padding-left:1rem;position:relative;line-height:1.5;}
+.dica-box li::before{content:'—';position:absolute;left:0;color:rgba(200,146,42,.4);font-size:.7rem;}
+
+/* CHECKLIST */
+.check-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+.check-box{background:var(--creme);border-radius:3px;padding:1.2rem;border:1px solid rgba(200,146,42,.12);}
+.check-box h4{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);margin-bottom:.8rem;padding-bottom:.5rem;border-bottom:1px solid rgba(200,146,42,.15);}
+.ci{display:flex;align-items:center;gap:.6rem;padding:.28rem 0;cursor:pointer;}
+.ci input{width:14px;height:14px;accent-color:var(--ocre);cursor:pointer;flex-shrink:0;}
+.ci label{font-size:.8rem;color:var(--texto);cursor:pointer;line-height:1.3;}
+.ci input:checked+label{text-decoration:line-through;color:var(--texto2);}
+
+/* PLANNER */
+.planner-table{width:100%;border-collapse:collapse;font-size:.8rem;margin-bottom:.8rem;}
+.planner-table th{text-align:left;font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);padding:.5rem .7rem;border-bottom:2px solid rgba(200,146,42,.2);}
+.planner-table td{padding:.65rem .7rem;border-bottom:1px solid rgba(200,146,42,.1);color:var(--texto);vertical-align:middle;}
+.planner-table tr:last-child td{border-bottom:none;font-weight:600;background:rgba(200,146,42,.05);}
+.planner-table input[type=number]{width:100%;border:1px solid rgba(200,146,42,.2);border-radius:2px;padding:.3rem .5rem;font-family:'Inter',sans-serif;font-size:.8rem;color:var(--texto);background:white;outline:none;}
+.planner-table input:focus{border-color:var(--ocre);}
+.planner-table .total-row td{color:var(--ocre);}
+.planner-note{font-size:.72rem;color:var(--texto2);font-style:italic;margin-top:.4rem;}
+.meta-boxes{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:2rem;}
+.meta-box{background:var(--creme);border-radius:3px;padding:1.2rem;border:1px solid rgba(200,146,42,.15);text-align:center;}
+.meta-box .m-prazo{font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--texto2);margin-bottom:.4rem;}
+.meta-box .m-val{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--ocre);}
+.meta-box .m-desc{font-size:.72rem;color:var(--texto2);margin-top:.3rem;line-height:1.4;}
+.eco-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.5rem;}
+.eco-item{background:var(--creme);border-radius:3px;padding:1rem 1.2rem;border:1px solid rgba(200,146,42,.12);}
+.eco-item h5{font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--ocre);margin-bottom:.4rem;}
+.eco-item p{font-size:.78rem;color:var(--texto);line-height:1.5;}
+
+/* FOOTER */
+footer{background:#0D0804;padding:3rem 2rem;text-align:center;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--creme);letter-spacing:3px;}
+.footer-tagline{font-size:.7rem;letter-spacing:3px;text-transform:uppercase;color:rgba(245,236,215,.25);margin:.4rem 0 1.5rem;}
+.footer-contact{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem;}
+.footer-contact a{color:rgba(245,236,215,.35);text-decoration:none;font-size:.75rem;transition:color .3s;}
+.footer-contact a:hover{color:var(--ocre);}
+.footer-copy{font-size:.68rem;color:rgba(245,236,215,.15);}
+.footer-hint{font-size:.62rem;color:rgba(245,236,215,.1);margin-top:.3rem;}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .indice-grid{grid-template-columns:1fr;}
+  .info-strip{grid-template-columns:repeat(2,1fr);}
+  .clima-dicas{grid-template-columns:1fr;}
+  .trans-grid{grid-template-columns:1fr 1fr;}
+  .pontos-grid{grid-template-columns:1fr;}
+  .hotel-grid{grid-template-columns:1fr;}
+  .rest-grid{grid-template-columns:1fr;}
+  .seg-cols{grid-template-columns:1fr;}
+  .dicas-grid{grid-template-columns:1fr;}
+  .check-grid{grid-template-columns:1fr 1fr;}
+  .meta-boxes{grid-template-columns:1fr;}
+  .eco-grid{grid-template-columns:1fr;}
+  .dia-header{grid-template-columns:auto 1fr;}
+  .dia-custo{display:none;}
+  .cover-stats{gap:1.5rem;}
+}
+@media(max-width:480px){
+  .check-grid{grid-template-columns:1fr;}
+  .trans-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">RUTA</a>
+  <div class="nav-r">
+    <a href="rio-de-janeiro.html">← Guia Rio</a>
+    <a href="index.html">Site principal</a>
+    <button class="btn-pdf no-print" onclick="window.print()">Salvar PDF</button>
+  </div>
+</nav>
+
+<!-- CAPA -->
+<section class="cover">
+  <div class="cover-bg"></div>
+  <div class="cover-overlay"></div>
+  <div class="cover-contact no-print">
+    <p>Ruta Concierge</p>
+    <p><a href="tel:5519981809181">(19) 98180-9181</a></p>
+    <p><a href="mailto:marceloborgesv4@gmail.com">marceloborgesv4@gmail.com</a></p>
+    <p><a href="https://rutaconcierge.netlify.app">rutaconcierge.com</a></p>
+  </div>
+  <div class="cover-content">
+    <span class="cover-label">Ruta Concierge — Guia de Viagem Completo</span>
+    <h1 class="cover-title">Rio de<br/><em>Janeiro</em></h1>
+    <p class="cover-sub">A Cidade Maravilhosa</p>
+    <div class="cover-stats">
+      <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Pontos turísticos</span></div>
+      <div class="stat"><span class="stat-num">7</span><span class="stat-label">Dias de roteiro</span></div>
+      <div class="stat"><span class="stat-num">5</span><span class="stat-label">Zonas da cidade</span></div>
+      <div class="stat"><span class="stat-num">R$</span><span class="stat-label">Planner financeiro</span></div>
+      <div class="stat"><span class="stat-num">☑</span><span class="stat-label">Checklist completo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÍNDICE -->
+<div class="indice" id="topo">
+  <div style="max-width:1000px;margin:0 auto;">
+    <button class="indice-toggle" id="indiceToggle" onclick="toggleIndice()">
+      <span class="indice-toggle-label">Índice — navegue pelo guia</span>
+      <span class="indice-toggle-arrow">▼</span>
+    </button>
+  </div>
+  <div class="indice-body" id="indiceBody">
+    <div class="indice-inner">
+      <div class="indice-grid">
+        <a href="#intro">Antes de partir — essenciais <span>01</span></a>
+        <a href="#clima">Clima e melhor época <span>02</span></a>
+        <a href="#transporte">Transporte público <span>03</span></a>
+        <a href="#zona-sul">Zona Sul — praias e cartões-postais <span>04</span></a>
+        <a href="#centro">Centro Histórico — cultura e arte <span>05</span></a>
+        <a href="#zona-norte">Zona Norte — futebol e cultura popular <span>06</span></a>
+        <a href="#zona-oeste">Zona Oeste — praias selvagens <span>07</span></a>
+        <a href="#santa-lapa">Santa Teresa e Lapa — boêmia e samba <span>08</span></a>
+        <a href="#roteiro">Roteiro por dias — 7 dias otimizados <span>09</span></a>
+        <a href="#hoteis">Hotéis recomendados <span>10</span></a>
+        <a href="#restaurantes">Onde comer <span>11</span></a>
+        <a href="#seguranca">Segurança <span>12</span></a>
+        <a href="#dicas">Dicas e experiências autênticas <span>13</span></a>
+        <a href="#checklist">Checklist de viagem <span>14</span></a>
+        <a href="#planner">Planner financeiro <span>15</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- INTRO -->
+<section class="sec sec-creme2" id="intro">
+  <div class="wrap">
+    <span class="lbl">01 — Antes de partir</span>
+    <h2 class="h">Informações essenciais</h2>
+    <div class="intro-box">
+      <p>O Rio de Janeiro é a cidade mais visitada do Brasil e um dos destinos mais icônicos do mundo. Com praias paradisíacas, montanhas exuberantes, cultura vibrante e gastronomia única, a Cidade Maravilhosa oferece experiências inesquecíveis para todos os perfis de viajante. <strong>Dica de ouro:</strong> monte seu roteiro por zonas — evite cruzar a cidade desnecessariamente. O metrô é seu melhor aliado para a Zona Sul e o Centro.</p>
+    </div>
+    <div class="info-strip">
+      <div class="info-item"><div class="i-label">Idioma</div><div class="i-val">Português</div></div>
+      <div class="info-item"><div class="i-label">Moeda</div><div class="i-val">Real (R$)</div></div>
+      <div class="info-item"><div class="i-label">Fuso</div><div class="i-val">UTC-3</div></div>
+      <div class="info-item"><div class="i-label">Emergência</div><div class="i-val">190 · 192 · 193</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIMA -->
+<section class="sec sec-creme" id="clima">
+  <div class="wrap">
+    <span class="lbl">02 — Clima</span>
+    <h2 class="h">Melhor época para visitar</h2>
+    <p style="font-size:.85rem;color:var(--texto2);margin-bottom:1.5rem;line-height:1.7;">O Rio tem clima tropical, com verão quente e úmido (Dez–Mar) e outono/inverno ameno e seco (Mai–Set). A melhor época é de maio a setembro: menos chuva, temperaturas agradáveis e praias menos lotadas.</p>
+    <table class="clima-table">
+      <thead><tr><th>Mês</th><th>Mín</th><th>Máx</th><th>Chuva</th><th>Recomendação</th></tr></thead>
+      <tbody>
+        <tr><td>Janeiro</td><td>24°C</td><td>32°C</td><td>175mm</td><td class="tag-bad">Quente e chuvoso</td></tr>
+        <tr><td>Fevereiro</td><td>24°C</td><td>33°C</td><td>160mm</td><td class="tag-warn">Carnaval — muito cheio</td></tr>
+        <tr><td>Março</td><td>23°C</td><td>32°C</td><td>155mm</td><td class="tag-bad">Ainda chuvoso</td></tr>
+        <tr><td>Abril</td><td>22°C</td><td>30°C</td><td>100mm</td><td class="tag-warn">Transitório</td></tr>
+        <tr><td>Maio</td><td>19°C</td><td>27°C</td><td>60mm</td><td class="tag-ok">Excelente</td></tr>
+        <tr><td>Junho</td><td>18°C</td><td>25°C</td><td>50mm</td><td class="tag-ok">Melhor época</td></tr>
+        <tr><td>Julho</td><td>17°C</td><td>25°C</td><td>45mm</td><td class="tag-ok">Melhor época</td></tr>
+        <tr><td>Agosto</td><td>18°C</td><td>26°C</td><td>50mm</td><td class="tag-ok">Excelente</td></tr>
+        <tr><td>Setembro</td><td>19°C</td><td>27°C</td><td>65mm</td><td class="tag-ok">Muito bom</td></tr>
+        <tr><td>Outubro</td><td>20°C</td><td>29°C</td><td>90mm</td><td class="tag-warn">Primavera — bom</td></tr>
+        <tr><td>Novembro</td><td>22°C</td><td>30°C</td><td>110mm</td><td class="tag-warn">Chuvas aumentando</td></tr>
+        <tr><td>Dezembro</td><td>23°C</td><td>32°C</td><td>150mm</td><td class="tag-bad">Quente, lotado, Réveillon</td></tr>
+      </tbody>
+    </table>
+    <div class="clima-dicas">
+      <div class="clima-dica-box">
+        <h4>Proteção e conforto</h4>
+        <ul>
+          <li>Protetor solar FPS 50+ — o sol carioca é intenso mesmo em dias nublados</li>
+          <li>Guarda-chuva compacto é essencial de outubro a março</li>
+          <li>O Corcovado pode ficar encoberto por nuvens — planeje para manhãs ensolaradas</li>
+          <li>Mar agitado é comum no inverno — verifique condições antes de nadar</li>
+        </ul>
+      </div>
+      <div class="clima-dica-box">
+        <h4>Grandes eventos ao ar livre</h4>
+        <ul>
+          <li>O Rio recebe frequentemente shows gratuitos de grande porte em Copacabana</li>
+          <li>Madonna (2024), Lady Gaga (2025) e Shakira (2026) reuniram milhões na praia</li>
+          <li>Esses eventos transformam a cidade — planeje com antecedência se coincidir com sua viagem</li>
+          <li>Rock in Rio (anos pares) é outra experiência única que vale incluir no roteiro</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPORTE -->
+<section class="sec sec-escuro" id="transporte">
+  <div class="wrap">
+    <span class="lbl">03 — Transporte</span>
+    <h2 class="h">Como se locomover no Rio</h2>
+    <div class="trans-grid">
+      <div class="trans-card">
+        <h4>Metrô</h4>
+        <ul>
+          <li>Linhas 1 (Laranja), 2 (Verde) e 4 (Amarela)</li>
+          <li>Seg–Sáb 5h–24h · Dom 7h–23h</li>
+          <li>Cobertura: Ipanema, Copa, Botafogo, Centro, Maracanã, Barra</li>
+          <li>Compre o RioCard pré-pago — evita filas e tem integração</li>
+        </ul>
+        <p class="preco">R$ 7,90/viagem</p>
+      </div>
+      <div class="trans-card">
+        <h4>VLT Carioca</h4>
+        <ul>
+          <li>Bonde moderno no Centro e Porto Maravilha</li>
+          <li>6h–23h · Integrado com metrô e BRT</li>
+          <li>Perfeito para explorar o Centro histórico sem andar muito</li>
+          <li>Moderno, confortável e pontual</li>
+        </ul>
+        <p class="preco">R$ 7,90 (integrado)</p>
+      </div>
+      <div class="trans-card">
+        <h4>BRT</h4>
+        <ul>
+          <li>Corredor Transoeste: Barra–Centro</li>
+          <li>Transcarioca: Galeão–Barra</li>
+          <li>5h–24h · Principal opção para a Barra da Tijuca</li>
+          <li>Integração com metrô e VLT</li>
+        </ul>
+        <p class="preco">R$ 7,90/viagem</p>
+      </div>
+      <div class="trans-card">
+        <h4>Barca / Balsa</h4>
+        <ul>
+          <li>Rio ↔ Niterói · Rio ↔ Paquetá</li>
+          <li>6h–23h30 (saídas a cada 30 min)</li>
+          <li>Vista espetacular da Baía de Guanabara</li>
+          <li>O passeio mais barato e bonito do Rio</li>
+        </ul>
+        <p class="preco">R$ 7,10 (Rio–Niterói)</p>
+      </div>
+      <div class="trans-card">
+        <h4>Uber / 99</h4>
+        <ul>
+          <li>Ideal para à noite e destinos sem metrô</li>
+          <li>Sempre prefira ao táxi de rua</li>
+          <li>Compartilhe com o grupo para dividir</li>
+          <li>Aeroporto: use táxi fixo credenciado</li>
+        </ul>
+        <p class="preco">R$ 15–50/corrida</p>
+      </div>
+      <div class="trans-card">
+        <h4>Ônibus</h4>
+        <ul>
+          <li>Cobertura total da cidade · 24 horas</li>
+          <li>App Moovit para rotas em tempo real</li>
+          <li>Prefira linhas expressas</li>
+          <li>Evite após 22h em áreas afastadas</li>
+        </ul>
+        <p class="preco">R$ 7,90/viagem</p>
+      </div>
+    </div>
+    <div class="riocard-box">
+      <p><strong style="color:var(--ocre);">RioCard:</strong> Cartão integrado para metrô, BRT, ônibus e VLT. Compre nas estações do metrô (R$ 5 pelo cartão + recarga). Com integração metrô-BRT, você paga uma tarifa para usar os dois modais em até 3 horas. Economia real para quem usa transporte público intensamente.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA SUL -->
+<section class="sec sec-creme2 zona-section" id="zona-sul">
+  <div class="wrap">
+    <span class="lbl">04 — Zona Sul</span>
+    <h2 class="h">Praias, cartões-postais e vida carioca</h2>
+    <div class="pontos-grid">
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Cristo-Redentor-RJ_Brasil.jpg" alt="Cristo Redentor"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">01</div><div class="ponto-nome">Cristo Redentor</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Parque Nacional da Tijuca, Alto Corcovado</span>
+            <span>Seg–Dom 8h–19h (última subida 18h)</span>
+            <span>Trem: R$ 87 · Van: R$ 30–50 · Criança até 5: grátis</span>
+            <span>Planeje 3–4h com deslocamento</span>
+          </div>
+          <div class="ponto-dica">Chegue antes das 9h para evitar filas e nuvens. Reserve online em tremdocorcovado.com.br</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/P�o-de-Acucar-RJ-Brasil.jpg" alt="Pão de Açúcar"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">02</div><div class="ponto-nome">Pão de Açúcar</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Av. Pasteur, 520 — Urca</span>
+            <span>8h–21h (bondinhos até 20h)</span>
+            <span>R$ 155 (adulto) · Criança até 6: grátis</span>
+          </div>
+          <div class="ponto-dica">Vá no fim do dia — o pôr do sol é espetacular e inesquecível</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Copacabana-RJ-Brasil.jpg" alt="Praia de Copacabana"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">03</div><div class="ponto-nome">Praia de Copacabana</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-imp">Imperdível</span></div>
+          <div class="ponto-meta">
+            <span>Av. Atlântica — Copacabana · 24 horas</span>
+            <span>Cadeira + guarda-sol: R$ 30/dia</span>
+          </div>
+          <div class="ponto-dica">O calçadão ondulado é patrimônio histórico. Vá de manhã cedo ou no fim da tarde</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Ipanema-RJ-Brasil.jpg" alt="Praia de Ipanema"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">04</div><div class="ponto-nome">Praia de Ipanema</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-imp">Imperdível</span></div>
+          <div class="ponto-meta">
+            <span>Av. Vieira Souto — Ipanema · 24 horas</span>
+            <span>Metrô: General Osório (L1)</span>
+          </div>
+          <div class="ponto-dica">Cada trecho tem sua "tribo" — surf, LGBT+, famílias. Pôr do sol no Arpoador é gratuito e único</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Jardim-Botanico-RJ-Brasil.jpg" alt="Jardim Botânico"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">05</div><div class="ponto-nome">Jardim Botânico</div></div>
+          <div class="ponto-badges"><span class="badge badge-nat">Natureza</span><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Rua Jardim Botânico, 1008 — Lagoa</span>
+            <span>Seg–Dom 8h–17h</span>
+            <span>R$ 20 (adulto) · Meia: R$ 10</span>
+          </div>
+          <div class="ponto-dica">Fundado em 1808. 6.500 espécies, bromélias, vitória-régias e a famosa alameda de palmeiras imperiais</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/DOna-MArta-RJ-Brasil.jpg" alt="Mirante Dona Marta"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">06</div><div class="ponto-nome">Mirante Dona Marta</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-imp">Imperdível</span></div>
+          <div class="ponto-meta">
+            <span>Estrada Dona Castorina — Botafogo</span>
+            <span>Ter–Dom 8h–17h · Gratuito</span>
+          </div>
+          <div class="ponto-dica">Vista aérea do Rio com Cristo ao fundo e Botafogo embaixo. Menos turistas que o Cristo. Use Uber para subir</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Lagoa-Rodrigo-de-Freitas-RJ-Brasil.jpg" alt="Lagoa Rodrigo de Freitas"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">07</div><div class="ponto-nome">Lagoa Rodrigo de Freitas</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span></div>
+          <div class="ponto-meta">
+            <span>Av. Epitácio Pessoa — Lagoa · 24 horas</span>
+            <span>Pedalinho: R$ 30/30min · Bicicleta: R$ 20/h</span>
+          </div>
+          <div class="ponto-dica">7,2km de pista ao redor. Vista do Corcovado de todos os ângulos. Quiosques com gastronomia variada</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/s�o-conrado-RJ-brasil.jpeg" alt="Praia de São Conrado"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">08</div><div class="ponto-nome">Praia de São Conrado</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-nat">Aventura</span></div>
+          <div class="ponto-meta">
+            <span>Av. Prefeito Mendes de Morais — São Conrado</span>
+            <span>Voo duplo de asa delta: R$ 350–450</span>
+          </div>
+          <div class="ponto-dica">Ponto de pouso dos voos de asa delta e paraglider. Praia mais tranquila e menos lotada que Copa e Ipanema</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CENTRO -->
+<section class="sec sec-creme zona-section" id="centro">
+  <div class="wrap">
+    <span class="lbl">05 — Centro Histórico</span>
+    <h2 class="h">Cultura, arte e patrimônio</h2>
+    <div class="pontos-grid">
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/museu-do-amanha-RJ-Brasil.jpg" alt="Museu do Amanhã"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">09</div><div class="ponto-nome">Museu do Amanhã</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Praça Mauá, 1 — Centro · VLT: Praça Mauá</span>
+            <span>Ter–Dom 10h–18h</span>
+            <span>R$ 30 (adulto) · Meia: R$ 15 · Terças: grátis</span>
+          </div>
+          <div class="ponto-dica">Arquitetura espetacular de Santiago Calatrava. Terças: entrada gratuita. Combine com o MAR ao lado</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Real-Gabinete-Portugu�s-de-Leitura-Rj-Brasil.jpg" alt="Real Gabinete Português"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">10</div><div class="ponto-nome">Real Gabinete Português de Leitura</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span></div>
+          <div class="ponto-meta">
+            <span>Rua Luís de Camões, 30 — Centro</span>
+            <span>Seg–Sex 9h–18h · Sáb 9h–13h · Gratuito</span>
+          </div>
+          <div class="ponto-dica">Uma das bibliotecas mais belas do mundo. 350.000 volumes. Arquitetura manuelina deslumbrante</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/arcos-lapa-Rj-Brasil.jpg" alt="Arcos da Lapa"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">11</div><div class="ponto-nome">Arcos da Lapa</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-imp">Imperdível</span></div>
+          <div class="ponto-meta">
+            <span>Av. Mem de Sá — Lapa · Metrô: Carioca</span>
+            <span>24 horas · Bonde de Santa Teresa: R$ 20</span>
+          </div>
+          <div class="ponto-dica">O coração da vida noturna do Rio. Às sextas e sábados: shows ao ar livre com choro e samba</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/niteroi-rj-brasil.jpg" alt="Travessia Rio-Niterói"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">12</div><div class="ponto-nome">Travessia Rio–Niterói de Barca</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span><span class="badge badge-free">Baratíssimo</span></div>
+          <div class="ponto-meta">
+            <span>Praça 15 de Novembro — Centro</span>
+            <span>6h–23h30 (a cada 30 min)</span>
+            <span>R$ 7,10 (ida) — o passeio mais barato do Rio</span>
+          </div>
+          <div class="ponto-dica">Vista da Baía de Guanabara, Ponte Rio-Niterói, Pão de Açúcar e Cristo. Imperdível por qualquer ângulo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA NORTE -->
+<section class="sec sec-creme2 zona-section" id="zona-norte">
+  <div class="wrap">
+    <span class="lbl">06 — Zona Norte</span>
+    <h2 class="h">Futebol, cultura popular e natureza</h2>
+    <div class="pontos-grid">
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/maracana-rj-brasil.jpg" alt="Maracanã"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">13</div><div class="ponto-nome">Estádio do Maracanã</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Av. Pres. Castelo Branco — Maracanã · Metrô: Maracanã</span>
+            <span>Tour: Seg–Dom 9h–17h · R$ 50</span>
+            <span>Jogos: R$ 25–100</span>
+          </div>
+          <div class="ponto-dica">Assistir a um clássico carioca (Fla×Flu) é uma das experiências mais intensas do Rio</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/feira-de-sao-cristovao-rj-brasil.jpg" alt="Feira de São Cristóvão"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">14</div><div class="ponto-nome">Feira de São Cristóvão</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Entrada grátis</span></div>
+          <div class="ponto-meta">
+            <span>Campo de São Cristóvão — São Cristóvão</span>
+            <span>Ter–Dom 10h–22h (Qui–Dom mais animado)</span>
+            <span>Comidas: R$ 20–50</span>
+          </div>
+          <div class="ponto-dica">"Capital do Nordeste no Rio". Forró ao vivo, carne de sol, artesanato. Autêntico e imperdível</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/floresta-tijua-rj-brasil.jpg" alt="Floresta da Tijuca"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">15</div><div class="ponto-nome">Floresta da Tijuca</div></div>
+          <div class="ponto-badges"><span class="badge badge-nat">Natureza</span><span class="badge badge-free">Gratuito</span></div>
+          <div class="ponto-meta">
+            <span>Estrada da Cascatinha, 850 — Alto da Boa Vista</span>
+            <span>8h–17h · Trilhas gratuitas · Com guia: R$ 60–100pp</span>
+          </div>
+          <div class="ponto-dica">Maior floresta urbana do mundo. Cachoeiras, trilhas para o Cristo, Pedra da Gávea. Leve água e repelente</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/Quinta-da-Boa-Vista-rj-brasil.jpg" alt="Quinta da Boa Vista"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">16</div><div class="ponto-nome">Quinta da Boa Vista</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Parque grátis</span></div>
+          <div class="ponto-meta">
+            <span>São Cristóvão · Metrô: São Cristóvão</span>
+            <span>Parque: 6h–18h · Zoo: Ter–Dom 10h–17h · R$ 8</span>
+          </div>
+          <div class="ponto-dica">Antigo palácio imperial. Jardins lindos e zoológico com o melhor custo-benefício da cidade</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA OESTE -->
+<section class="sec sec-creme zona-section" id="zona-oeste">
+  <div class="wrap">
+    <span class="lbl">07 — Zona Oeste</span>
+    <h2 class="h">Praias selvagens e natureza preservada</h2>
+    <div class="pontos-grid">
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/grumari-rj-brasil.jpg" alt="Prainha e Grumari"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">17</div><div class="ponto-nome">Prainha e Grumari</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-imp">Escondida</span></div>
+          <div class="ponto-meta">
+            <span>Estrada de Grumari — Zona Oeste</span>
+            <span>Uber da Barra: ~R$ 40</span>
+          </div>
+          <div class="ponto-dica">Praias paradisíacas, quase desertas, preservadas. Natureza intocada. Leve lanche — pouca estrutura</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/barra-da-tijuca-rj-brasil.jpg" alt="Barra da Tijuca"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">18</div><div class="ponto-nome">Praia da Barra da Tijuca</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span></div>
+          <div class="ponto-meta">
+            <span>Av. Lúcio Costa — Barra · BRT: Jardim Oceânico</span>
+            <span>18km de areia · Aula de surf: R$ 80/h</span>
+          </div>
+          <div class="ponto-dica">A maior praia do Rio. Mar mais agitado, perfeito para surf. Menos lotada que Copa e Ipanema</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SANTA TERESA E LAPA -->
+<section class="sec sec-creme2 zona-section" id="santa-lapa">
+  <div class="wrap">
+    <span class="lbl">08 — Santa Teresa e Lapa</span>
+    <h2 class="h">Boêmia, arte e samba</h2>
+    <div class="pontos-grid">
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/selar�n-rj-brasil.jpg" alt="Escadaria Selarón"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">19</div><div class="ponto-nome">Escadaria Selarón</div></div>
+          <div class="ponto-badges"><span class="badge badge-free">Gratuito</span><span class="badge badge-imp">Imperdível</span></div>
+          <div class="ponto-meta">
+            <span>Rua Manuel Carneiro — Santa Teresa/Lapa</span>
+            <span>24 horas · Melhor de dia para fotos</span>
+          </div>
+          <div class="ponto-dica">250 degraus decorados com azulejos de 60 países. Combine com Lapa e Santa Teresa no mesmo dia</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/bonde-santa-teresa-rj-brasil.jpg" alt="Bonde de Santa Teresa"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">20</div><div class="ponto-nome">Bonde de Santa Teresa</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Pça Tiradentes — Centro · Seg–Sáb 8h–17h</span>
+            <span>R$ 20 (adulto) · A cada 30 min</span>
+          </div>
+          <div class="ponto-dica">O bonde mais antigo em funcionamento no Brasil. Vista panorâmica única do bairro boêmio</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/chcara-do-ceu-rj-brasil.jpg" alt="Museu Chácara do Céu"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">21</div><div class="ponto-nome">Museu da Chácara do Céu</div></div>
+          <div class="ponto-badges"><span class="badge badge-pago">Ingresso</span></div>
+          <div class="ponto-meta">
+            <span>Rua Murtinho Nobre, 93 — Santa Teresa</span>
+            <span>Qua–Seg 12h–17h · R$ 8 · Quartas: grátis</span>
+          </div>
+          <div class="ponto-dica">Obras de Picasso, Matisse e Modigliani num casarão histórico com jardim e vista do Rio. Joia escondida</div>
+        </div>
+      </div>
+      <div class="ponto-card">
+        <img class="ponto-img" src="imagens/arcos-lapa-Rj-Brasil.jpg" alt="Clube dos Democráticos"/>
+        <div class="ponto-body">
+          <div class="ponto-topo"><div class="ponto-num">22</div><div class="ponto-nome">Clube dos Democráticos</div></div>
+          <div class="ponto-badges"><span class="badge badge-imp">Imperdível</span></div>
+          <div class="ponto-meta">
+            <span>Rua do Riachuelo, 91 — Lapa</span>
+            <span>Sáb 22h até tarde · R$ 25–40 (couvert)</span>
+          </div>
+          <div class="ponto-dica">Fundado em 1867. Uma das experiências de samba mais autênticas do Rio. Chegue antes das 23h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROTEIRO 7 DIAS -->
+<section class="sec sec-escuro" id="roteiro">
+  <div class="wrap">
+    <span class="lbl">09 — Roteiro</span>
+    <h2 class="h">7 dias otimizados por proximidade</h2>
+    <p style="font-size:.83rem;color:rgba(245,236,215,.6);margin-bottom:2rem;line-height:1.7;">Cada dia foi montado por zona geográfica para economizar tempo e transporte. Custo estimado por pessoa inclui ingressos, refeições simples e transporte local.</p>
+
+    <!-- DIA 1 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">1</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Cristo Redentor · Santa Teresa · Lapa</div>
+          <div class="dia-sub">Santa Teresa · Arcos da Lapa · Escadaria Selarón</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 180–260</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">07h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Cristo Redentor — Trem do Corcovado</p><span class="atv-p pg">R$ 87</span></div><p class="atv-desc">Chegue cedo para evitar nuvens e filas. Compre ingresso online com antecedência. Tome café antes — alimentação lá é cara.</p><p class="atv-meta">Estação Cosme Velho · tremdocorcovado.com.br</p></div></div>
+        <div class="atv"><div class="atv-h">11h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Bonde de Santa Teresa</p><span class="atv-p pg">R$ 20</span></div><p class="atv-desc">Desça na Praça Tiradentes (Metrô: Carioca) e embarque no bonde histórico. Percurso pelo charmoso bairro boêmio.</p></div></div>
+        <div class="atv"><div class="atv-h">12h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Almoço em Santa Teresa — Bar do Mineiro</p><span class="atv-p pg">R$ 35–60</span></div><p class="atv-desc">Culinária brasileira autêntica. Feijoada aos sábados. Bolinho de bacalhau famoso.</p><p class="atv-meta">Rua Paschoal Carlos Magno, 99</p></div></div>
+        <div class="atv"><div class="atv-h">14h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Escadaria Selarón + Arcos da Lapa</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Desça a pé até a Selarón (15 min) → fotografe os 250 degraus → siga aos Arcos da Lapa (5 min a pé).</p></div></div>
+        <div class="atv"><div class="atv-h">19h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Samba na Lapa</p><span class="atv-p pg">R$ 25–40</span></div><p class="atv-desc">Clube dos Democráticos ou Casa Rosa — samba carioca autêntico. Ou simplesmente os botecos na rua com samba ao vivo gratuito.</p><div class="atv-dica">Atenção com pertences na Lapa à noite. Deixe documentos originais na hospedagem.</div></div></div>
+      </div>
+    </div>
+
+    <!-- DIA 2 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">2</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Pão de Açúcar · Urca · Botafogo · Pôr do Sol</div>
+          <div class="dia-sub">Bondinho · Enseada · Mirante Dona Marta · Arpoador</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 260–340</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">08h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Caminhada na Praia de Botafogo</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Manhã tranquila na orla de Botafogo com vista do Pão de Açúcar. Café nos quiosques.</p><p class="atv-meta">Metrô: Botafogo</p></div></div>
+        <div class="atv"><div class="atv-h">10h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Pão de Açúcar — Bondinho</p><span class="atv-p pg">R$ 155</span></div><p class="atv-desc">Dois bondinhos: primeiro ao Morro da Urca, depois ao Pão de Açúcar. Vista 360° do Rio.</p><div class="atv-dica">Compre ingresso online. Chegue às 10h, antes do calor e das filas.</div></div></div>
+        <div class="atv"><div class="atv-h">13h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Almoço no Bairro da Urca — Bar Urca</p><span class="atv-p pg">R$ 40–60</span></div><p class="atv-desc">O bairro mais tranquilo do Rio. Bar Urca tem vista da Baía. Bolinho de bacalhau e cerveja gelada no muro.</p><p class="atv-meta">Rua Cândido Gaffrée, 205 — Urca</p></div></div>
+        <div class="atv"><div class="atv-h">15h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Mirante Dona Marta</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Uber até o mirante (~R$ 15). Vista aérea espetacular com o Cristo ao fundo. Menos turistas, mais paz.</p></div></div>
+        <div class="atv"><div class="atv-h">17h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Pedra do Arpoador — Pôr do Sol</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Uber até Ipanema (~R$ 20). O aplauso coletivo ao pôr do sol na Pedra do Arpoador é uma das cenas mais emocionantes do Rio.</p></div></div>
+      </div>
+    </div>
+
+    <!-- DIA 3 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">3</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Centro Histórico e Porto Maravilha</div>
+          <div class="dia-sub">Museu do Amanhã · MAR · VLT · Praça Mauá · Barca</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 120–180</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">09h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Real Gabinete Português de Leitura</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Uma das bibliotecas mais belas do mundo. Chegue cedo para fotos sem multidão.</p><p class="atv-meta">Rua Luís de Camões, 30 · Metrô: Carioca</p></div></div>
+        <div class="atv"><div class="atv-h">10h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Theatro Municipal + Cinelândia</p><span class="atv-p pg">R$ 12</span></div><p class="atv-desc">Praça Floriano, Theatro Municipal, Museu Nacional de Belas Artes. Toda a região é a pé.</p><p class="atv-meta">MNBA: R$ 12 (grátis sáb-dom)</p></div></div>
+        <div class="atv"><div class="atv-h">11h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">VLT até a Praça Mauá</p><span class="atv-p pg">R$ 7,90</span></div><p class="atv-desc">Embarque na Cinelândia e vá até Praça Mauá. O transporte em si já é uma experiência pelo centro histórico.</p></div></div>
+        <div class="atv"><div class="atv-h">13h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Museu do Amanhã + MAR</p><span class="atv-p pg">R$ 30+20</span></div><p class="atv-desc">Os dois museus ficam na Praça Mauá, um ao lado do outro. Planeje 3–4h no total.</p><div class="atv-dica">Grátis às terças. Se for terça, economize R$ 50 por pessoa.</div></div></div>
+        <div class="atv"><div class="atv-h">17h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Travessia de Barca para Niterói</p><span class="atv-p pg">R$ 7,10</span></div><p class="atv-desc">Da Praça 15 (a pé do Museu do Amanhã), pegue a barca para Niterói e volte. O passeio mais barato e bonito do Rio.</p></div></div>
+      </div>
+    </div>
+
+    <!-- DIA 4 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">4</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Ipanema · Jardim Botânico · Lagoa · Leblon</div>
+          <div class="dia-sub">Praia · Arpoador · Lagoa · JB · Fim de tarde no Leblon</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 130–200</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">07h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Praia de Ipanema — Manhã</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Chegue cedo para boa posição. Alugue cadeira e guarda-sol (R$ 30). Observe as "tribos" de cada trecho.</p><p class="atv-meta">Metrô: General Osório</p></div></div>
+        <div class="atv"><div class="atv-h">10h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Jardim Botânico</p><span class="atv-p pg">R$ 20</span></div><p class="atv-desc">10 min de Uber de Ipanema (R$ 12). Alameda de palmeiras imperiais, orquídeas, vitória-régias. Melhor de manhã.</p><p class="atv-meta">Rua Jardim Botânico, 1008</p></div></div>
+        <div class="atv"><div class="atv-h">12h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Almoço nos Quiosques da Lagoa</p><span class="atv-p pg">R$ 25–50</span></div><p class="atv-desc">Árabe, japonês, churrasco — ao ar livre com vista da Lagoa e do Cristo ao fundo.</p></div></div>
+        <div class="atv"><div class="atv-h">14h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Ciclovia da Lagoa</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Alugue bicicleta (R$ 20/h) ou pedalinho (R$ 30/30min) e circule pelos 7,2km ao redor da Lagoa.</p></div></div>
+        <div class="atv"><div class="atv-h">17h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Leblon — Fim de tarde</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Praia do Leblon (mais tranquila que Ipanema), Rua Dias Ferreira (gastronomia), pôr do sol na orla.</p></div></div>
+      </div>
+    </div>
+
+    <!-- DIA 5 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">5</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Zona Norte — Maracanã · Quinta da Boa Vista · Feira</div>
+          <div class="dia-sub">Estádio · Palácio Imperial · Feira de São Cristóvão</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 110–160</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">09h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Tour pelo Maracanã</p><span class="atv-p pg">R$ 50</span></div><p class="atv-desc">Visita guiada pelo estádio mais famoso do Brasil. Vestiários, gramado, museu. Se houver jogo, garanta ingresso!</p><p class="atv-meta">Metrô: Maracanã</p></div></div>
+        <div class="atv"><div class="atv-h">11h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Quinta da Boa Vista</p><span class="atv-p">Parque grátis</span></div><p class="atv-desc">10 min a pé do Maracanã. Palácio Imperial, jardins e o Zoo mais barato da cidade (R$ 8).</p></div></div>
+        <div class="atv"><div class="atv-h">13h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Feira de São Cristóvão</p><span class="atv-p">Entrada grátis</span></div><p class="atv-desc">2 paradas de metrô. Carne de sol, baião de dois, tapioca, forró ao vivo. Almoço: R$ 25–40.</p></div></div>
+        <div class="atv"><div class="atv-h">16h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Floresta da Tijuca — Cascatinha Taunay</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Uber (~R$ 30). Cachoeira de 35m dentro da maior floresta urbana do mundo. Refrescante e surpreendente.</p></div></div>
+      </div>
+    </div>
+
+    <!-- DIA 6 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">6</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Barra da Tijuca · Praias Selvagens</div>
+          <div class="dia-sub">Barra · Recreio · Prainha · Grumari</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 120–200</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">08h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Praia da Barra da Tijuca</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">BRT Transcarioca do Centro (R$ 7,90). 18km de areia. Surf, stand up paddle, kitesurf.</p><div class="atv-dica">Aula de surf: R$ 80/h com instrutor</div></div></div>
+        <div class="atv"><div class="atv-h">13h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Prainha e Grumari</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Uber (~R$ 30) até as praias mais bonitas e desertas do Rio. Água cristalina, natureza preservada. Leve lanche.</p></div></div>
+        <div class="atv"><div class="atv-h">17h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Jantar na Barra — frutos do mar</p><span class="atv-p pg">R$ 45–70</span></div><p class="atv-desc">Orla da Barra tem restaurantes de frutos do mar acessíveis. Peixe fresco com vista do mar.</p></div></div>
+      </div>
+    </div>
+
+    <!-- DIA 7 -->
+    <div class="dia-card">
+      <div class="dia-header">
+        <div class="dia-n">7</div>
+        <div class="dia-info">
+          <div class="dia-titulo">Copacabana · Forte · Feira Hippie · Despedida</div>
+          <div class="dia-sub">Última manhã na praia · Forte de Copacabana · Souvenirs</div>
+        </div>
+        <div class="dia-custo"><div class="custo-label">Custo estimado</div><div class="custo-val">R$ 100–180</div></div>
+      </div>
+      <div class="ativs">
+        <div class="atv"><div class="atv-h">07h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Última manhã em Copacabana</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Aproveite a praia mais icônica do mundo uma última vez. Corra ou caminhe no calçadão com vista do Pão de Açúcar.</p><p class="atv-meta">Metrô: Cardeal Arcoverde</p></div></div>
+        <div class="atv"><div class="atv-h">09h30</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Forte de Copacabana</p><span class="atv-p pg">R$ 8</span></div><p class="atv-desc">Fortaleza histórica na ponta de Copacabana. Vista incrível do mar e museu. Café Colombo tem filial aqui.</p><div class="atv-dica">Café da manhã no Colombo do Forte: R$ 15–25. Vale muito.</div></div></div>
+        <div class="atv"><div class="atv-h">11h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Feira Hippie de Ipanema (se domingo)</p><span class="atv-p">Gratuito</span></div><p class="atv-desc">Maior feira de artesanato e arte do Rio. Praça General Osório, domingos 9h–18h. Ótima para souvenirs.</p></div></div>
+        <div class="atv"><div class="atv-h">13h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Almoço de despedida</p><span class="atv-p pg">R$ 50–85</span></div><p class="atv-desc">Churrascaria Palace (R$ 85pp) em Copacabana, ou boteco tradicional: Bip Bip ou Azul Marinho.</p></div></div>
+        <div class="atv"><div class="atv-h">15h</div><div class="atv-b"><div class="atv-top"><p class="atv-nome">Partida para o aeroporto</p><span class="atv-p pg">R$ 5,80–50</span></div><p class="atv-desc">Santos Dumont: Metrô + VLT (45 min). Galeão: BRT Transcarioca (60–90 min). Saia com 3h de antecedência.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOTÉIS -->
+<section class="sec sec-floresta" id="hoteis">
+  <div class="wrap">
+    <span class="lbl">10 — Hospedagem</span>
+    <h2 class="h">Hotéis recomendados</h2>
+    <p style="font-size:.83rem;color:rgba(245,236,215,.6);margin-bottom:1.5rem;line-height:1.7;">Melhor área: Copacabana e Ipanema oferecem localização central e acesso ao metrô. Botafogo é uma excelente opção mais acessível, bem conectada e com ótima gastronomia.</p>
+    <div class="hotel-grid">
+      <div class="hotel-card">
+        <p class="hotel-tipo">Hotel</p>
+        <h3 class="hotel-nome">Ibis Copacabana</h3>
+        <p class="hotel-stars">★★★</p>
+        <p class="hotel-bairro">Copacabana</p>
+        <ul class="hotel-meta">
+          <li>Rua Ministro Viveiros de Castro, 134</li>
+          <li>5 min a pé do Metrô Cardeal Arcoverde</li>
+          <li>3 min a pé da Praia de Copacabana</li>
+          <li>Wi-Fi grátis · AC · Café opcional (+R$ 30)</li>
+        </ul>
+        <p class="hotel-preco">R$ 220–380/noite (casal)</p>
+        <p class="hotel-nota">Melhor custo-benefício de Copacabana. Rede confiável, limpeza impecável.</p>
+      </div>
+      <div class="hotel-card">
+        <p class="hotel-tipo">Hotel</p>
+        <h3 class="hotel-nome">Hotel Vermont Ipanema</h3>
+        <p class="hotel-stars">★★★</p>
+        <p class="hotel-bairro">Ipanema</p>
+        <ul class="hotel-meta">
+          <li>Rua Visconde de Pirajá, 254</li>
+          <li>2 min do Metrô General Osório</li>
+          <li>5 min a pé de Ipanema</li>
+          <li>Café da manhã · Wi-Fi · Frigobar</li>
+        </ul>
+        <p class="hotel-preco">R$ 280–450/noite (casal)</p>
+        <p class="hotel-nota">No coração de Ipanema. Quartos confortáveis, staff prestativo.</p>
+      </div>
+      <div class="hotel-card">
+        <p class="hotel-tipo">Hostel boutique</p>
+        <h3 class="hotel-nome">Mango Tree Hostel</h3>
+        <p class="hotel-stars">★★★</p>
+        <p class="hotel-bairro">Ipanema</p>
+        <ul class="hotel-meta">
+          <li>Rua Prudente de Morais, 594</li>
+          <li>Metrô General Osório (3 min)</li>
+          <li>2 min de Ipanema</li>
+          <li>Café · Wi-Fi · Piscina · Terraço</li>
+        </ul>
+        <p class="hotel-preco">R$ 180–280/noite (privativo)</p>
+        <p class="hotel-nota">O hostel mais bem avaliado do Rio. Ambiente social, piscina, terraço com vista.</p>
+      </div>
+      <div class="hotel-card">
+        <p class="hotel-tipo">Hotel</p>
+        <h3 class="hotel-nome">Hotel Augusto's Copacabana</h3>
+        <p class="hotel-stars">★★★</p>
+        <p class="hotel-bairro">Copacabana</p>
+        <ul class="hotel-meta">
+          <li>Rua Bolivar, 119</li>
+          <li>Metrô Siqueira Campos (5 min)</li>
+          <li>8 min a pé de Copacabana</li>
+          <li>Café da manhã farto · Wi-Fi · TV a cabo</li>
+        </ul>
+        <p class="hotel-preco">R$ 200–320/noite (casal)</p>
+        <p class="hotel-nota">Café da manhã muito bem avaliado. Quartos espaçosos, staff experiente.</p>
+      </div>
+      <div class="hotel-card">
+        <p class="hotel-tipo">Hostel boutique</p>
+        <h3 class="hotel-nome">Rio Hostel Santa Teresa</h3>
+        <p class="hotel-stars">★★★</p>
+        <p class="hotel-bairro">Santa Teresa</p>
+        <ul class="hotel-meta">
+          <li>Rua Joaquim Murtinho, 361</li>
+          <li>Uber do Centro: R$ 15</li>
+          <li>Vista panorâmica do Rio</li>
+          <li>Café · Wi-Fi · Piscina com vista</li>
+        </ul>
+        <p class="hotel-preco">R$ 160–260/noite (privativo)</p>
+        <p class="hotel-nota">Vista de tirar o fôlego. Ambiente artístico e boêmio. Experiência única.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESTAURANTES -->
+<section class="sec sec-creme" id="restaurantes">
+  <div class="wrap">
+    <span class="lbl">11 — Gastronomia</span>
+    <h2 class="h">Onde comer no Rio</h2>
+    <div class="rest-grid">
+      <div class="rest-card"><div class="rest-icon">🥘</div><div><p class="rest-tipo">Boteco tradicional</p><p class="rest-nome">Bar do Mineiro</p><p class="rest-meta">R. Paschoal Carlos Magno, 99 — Santa Teresa<br>Ter–Dom 11h–23h</p><p class="rest-preco">R$ 35–55/pessoa</p></div></div>
+      <div class="rest-card"><div class="rest-icon">🐠</div><div><p class="rest-tipo">Bar à beira-mar</p><p class="rest-nome">Bar Urca</p><p class="rest-meta">Rua Cândido Gaffrée, 205 — Urca<br>Ter–Dom 9h–23h</p><p class="rest-preco">R$ 40–60/pessoa</p></div></div>
+      <div class="rest-card"><div class="rest-icon">☕</div><div><p class="rest-tipo">Café histórico</p><p class="rest-nome">Confeitaria Colombo</p><p class="rest-meta">Rua Gonçalves Dias, 32 — Centro<br>Seg–Sex 9h–19h · Sáb 9h–17h</p><p class="rest-preco">R$ 20–40/pessoa</p></div></div>
+      <div class="rest-card"><div class="rest-icon">🌮</div><div><p class="rest-tipo">Gastronômico ao ar livre</p><p class="rest-nome">Quiosques da Lagoa</p><p class="rest-meta">Av. Epitácio Pessoa — Lagoa<br>Diário 11h–23h</p><p class="rest-preco">R$ 25–50/pessoa</p></div></div>
+      <div class="rest-card"><div class="rest-icon">🥩</div><div><p class="rest-tipo">Churrascaria rodízio</p><p class="rest-nome">Churrascaria Palace</p><p class="rest-meta">Rua Rodolfo Dantas, 16 — Copacabana<br>Diário 12h–23h</p><p class="rest-preco">R$ 85/pessoa (rodízio)</p></div></div>
+      <div class="rest-card"><div class="rest-icon">🎺</div><div><p class="rest-tipo">Culinária nordestina</p><p class="rest-nome">Feira de São Cristóvão</p><p class="rest-meta">Campo de São Cristóvão — Zona Norte<br>Qui–Dom 10h–22h</p><p class="rest-preco">R$ 20–40/pessoa</p></div></div>
+      <div class="rest-card"><div class="rest-icon">🍺</div><div><p class="rest-tipo">Boteco histórico</p><p class="rest-nome">Bip Bip</p><p class="rest-meta">Rua Almirante Gonçalves, 50 — Copacabana<br>Diário 17h–meia noite</p><p class="rest-preco">R$ 15–30 (petiscos e bebidas)</p></div></div>
+      <div class="rest-card"><div class="rest-icon">🥐</div><div><p class="rest-tipo">Padaria / Café da manhã</p><p class="rest-nome">Padaria Brasileira Ipanema</p><p class="rest-meta">Rua Maria Quitéria, 77 — Ipanema<br>Diário 6h–23h</p><p class="rest-preco">R$ 15–30/pessoa</p></div></div>
+    </div>
+    <div style="background:rgba(200,146,42,.08);border-left:3px solid var(--ocre);padding:1rem 1.3rem;border-radius:0 3px 3px 0;margin-top:1.5rem;">
+      <p style="font-size:.82rem;color:var(--texto);line-height:1.7;"><strong style="color:var(--ocre);">Dicas de alimentação:</strong> Prato feito (PF) no almoço em restaurante por kg custa R$ 30–40 e é farto. Sucos cariocas (açaí, caju, graviola) nas barracas de praia: R$ 8–15. Restaurantes no calçadão de Copacabana são caros e mediocres — suba 2 quarteirões para preços melhores. Gorjeta de 10% já incluída na conta — opcional pagar ou não.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURANÇA -->
+<section class="sec sec-sepia" id="seguranca">
+  <div class="wrap">
+    <span class="lbl">12 — Segurança</span>
+    <h2 class="h">Áreas seguras, dicas e o que evitar</h2>
+    <div class="seg-cols">
+      <div class="seg-box seg-ok">
+        <h4>Áreas mais seguras</h4>
+        <ul>
+          <li>Ipanema e Leblon</li>
+          <li>Urca (tranquilo, residencial)</li>
+          <li>Barra da Tijuca</li>
+          <li>Botafogo e Flamengo</li>
+          <li>Copacabana (orla — cuidado à noite)</li>
+          <li>Jardim Botânico e Gávea</li>
+          <li>Porto Maravilha (reformado)</li>
+        </ul>
+      </div>
+      <div class="seg-box seg-warn">
+        <h4>Atenção redobrada</h4>
+        <ul>
+          <li>Centro histórico à noite (após 20h)</li>
+          <li>Lapa (animada mas pickpockets frequentes)</li>
+          <li>Praias à noite</li>
+          <li>Região da Rodoviária Novo Rio</li>
+          <li>Favelas sem tour organizado</li>
+          <li>Zona Norte afastada</li>
+        </ul>
+      </div>
+      <div class="seg-box seg-em">
+        <h4>Regras de ouro</h4>
+        <ul>
+          <li>Não use celular caro na rua à toa</li>
+          <li>Na praia: leve só o essencial</li>
+          <li>À noite, prefira Uber a caminhar</li>
+          <li>Copie documentos — deixe originais no hotel</li>
+          <li>Bolsa de frente (pochete) é ideal</li>
+          <li>Polícia: 190 · SAMU: 192 · Bombeiros: 193</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DICAS -->
+<section class="sec sec-creme2" id="dicas">
+  <div class="wrap">
+    <span class="lbl">13 — Dicas exclusivas</span>
+    <h2 class="h">Experiências que nenhum guia comum conta</h2>
+    <div class="dicas-grid">
+      <div class="dica-box">
+        <h4>Experiências autênticas e gratuitas</h4>
+        <ul>
+          <li>Roda de choro na Lapa: sextas e sábados, músicos tocam ao vivo nos bares. Gratuito</li>
+          <li>Feira Hippie de Ipanema: domingos 9h–18h na Praça General Osório. Arte e artesanato</li>
+          <li>Yoga na Praia do Flamengo: grupos gratuitos nas manhãs de sábado e domingo</li>
+          <li>Tour gratuito pelo Centro Histórico: Rio Trilhas oferece tours às 3ª e 5ª às 10h — só gorjeta</li>
+          <li>Pedra do Sal: samba ao vivo gratuito às segundas e sextas a partir das 18h</li>
+        </ul>
+      </div>
+      <div class="dica-box">
+        <h4>Museus com entrada gratuita</h4>
+        <ul>
+          <li>Museu do Amanhã: terças</li>
+          <li>MAR — Museu de Arte do Rio: terças</li>
+          <li>Museu Nacional de Belas Artes: sábados e domingos</li>
+          <li>Museu da Chácara do Céu: quartas</li>
+          <li>Real Gabinete Português de Leitura: sempre gratuito</li>
+        </ul>
+      </div>
+      <div class="dica-box">
+        <h4>Apps essenciais</h4>
+        <ul>
+          <li>Moovit: transporte público em tempo real</li>
+          <li>Uber / 99: sempre prefira ao táxi de rua</li>
+          <li>Sympla / Ingresso.com: ingressos online — evita filas</li>
+          <li>Google Maps: baixe o mapa offline antes de viajar</li>
+          <li>Wisuki: condições de mar e surf nas praias</li>
+        </ul>
+      </div>
+      <div class="dica-box">
+        <h4>Grandes eventos ao ar livre</h4>
+        <ul>
+          <li>O Rio recebe anualmente shows gratuitos de grande porte em Copacabana</li>
+          <li>Madonna (2024), Lady Gaga (2025) e Shakira (2026) reuniram milhões na praia</li>
+          <li>Rock in Rio (anos pares) é outra experiência única — verifique o calendário</li>
+          <li>Se sua viagem coincidir com um desses eventos, planeje com antecedência extra</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section class="sec sec-creme" id="checklist">
+  <div class="wrap">
+    <span class="lbl">14 — Checklist</span>
+    <h2 class="h">O que levar na viagem</h2>
+    <p style="font-size:.82rem;color:var(--texto2);margin-bottom:1.5rem;">Quantidades calculadas para 7 dias. Para viagens menores, ajuste proporcionalmente. O Rio tem clima quente — roupas leves são prioridade.</p>
+    <div class="check-grid">
+      <div class="check-box">
+        <h4>Roupas</h4>
+        <div class="ci"><input type="checkbox" id="r1"><label for="r1">Camisetas leves — 7 a 8 peças</label></div>
+        <div class="ci"><input type="checkbox" id="r2"><label for="r2">Shorts / bermuda — 4 a 5 peças</label></div>
+        <div class="ci"><input type="checkbox" id="r3"><label for="r3">Calça leve (passeio noturno) — 1 a 2</label></div>
+        <div class="ci"><input type="checkbox" id="r4"><label for="r4">Roupa de banho — 2 a 3 peças</label></div>
+        <div class="ci"><input type="checkbox" id="r5"><label for="r5">Saída de praia / canga — 1 a 2</label></div>
+        <div class="ci"><input type="checkbox" id="r6"><label for="r6">Roupa íntima — 7 a 8 peças</label></div>
+        <div class="ci"><input type="checkbox" id="r7"><label for="r7">Casaco leve (AC / noite fria)</label></div>
+      </div>
+      <div class="check-box">
+        <h4>Calçados</h4>
+        <div class="ci"><input type="checkbox" id="c1"><label for="c1">Tênis confortável (trilha / caminhada)</label></div>
+        <div class="ci"><input type="checkbox" id="c2"><label for="c2">Havaianas / sandálias de praia</label></div>
+        <div class="ci"><input type="checkbox" id="c3"><label for="c3">Sapato casual (jantar / passeio)</label></div>
+        <h4 style="margin-top:1rem;">Higiene e saúde</h4>
+        <div class="ci"><input type="checkbox" id="h1"><label for="h1">Protetor solar FPS 50+ — 2 frascos</label></div>
+        <div class="ci"><input type="checkbox" id="h2"><label for="h2">Repelente</label></div>
+        <div class="ci"><input type="checkbox" id="h3"><label for="h3">Analgésico, antidiarreico, anti-histamínico</label></div>
+        <div class="ci"><input type="checkbox" id="h4"><label for="h4">Pós-sol (hidratante)</label></div>
+        <div class="ci"><input type="checkbox" id="h5"><label for="h5">Medicamentos pessoais (7+ dias)</label></div>
+      </div>
+      <div class="check-box">
+        <h4>Tecnologia</h4>
+        <div class="ci"><input type="checkbox" id="t1"><label for="t1">Celular + carregador</label></div>
+        <div class="ci"><input type="checkbox" id="t2"><label for="t2">Power bank (10.000mAh+)</label></div>
+        <div class="ci"><input type="checkbox" id="t3"><label for="t3">Fone de ouvido</label></div>
+        <div class="ci"><input type="checkbox" id="t4"><label for="t4">Câmera compacta (opcional)</label></div>
+        <div class="ci"><input type="checkbox" id="t5"><label for="t5">Chip local ou eSIM</label></div>
+        <h4 style="margin-top:1rem;">Praia e atividades</h4>
+        <div class="ci"><input type="checkbox" id="p1"><label for="p1">Canga grande — 1 a 2</label></div>
+        <div class="ci"><input type="checkbox" id="p2"><label for="p2">Óculos de sol com proteção UV</label></div>
+        <div class="ci"><input type="checkbox" id="p3"><label for="p3">Chapéu / boné</label></div>
+        <div class="ci"><input type="checkbox" id="p4"><label for="p4">Garrafa de água reutilizável</label></div>
+        <div class="ci"><input type="checkbox" id="p5"><label for="p5">Guarda-chuva compacto</label></div>
+      </div>
+      <div class="check-box">
+        <h4>Documentos e dinheiro</h4>
+        <div class="ci"><input type="checkbox" id="d1"><label for="d1">RG ou Passaporte (original)</label></div>
+        <div class="ci"><input type="checkbox" id="d2"><label for="d2">Cópia dos documentos (foto no celular)</label></div>
+        <div class="ci"><input type="checkbox" id="d3"><label for="d3">Cartão de débito / crédito — 2 cartões</label></div>
+        <div class="ci"><input type="checkbox" id="d4"><label for="d4">Dinheiro em espécie — R$ 300–500</label></div>
+        <div class="ci"><input type="checkbox" id="d5"><label for="d5">Seguro viagem (recomendado)</label></div>
+        <div class="ci"><input type="checkbox" id="d6"><label for="d6">Vouchers de hotel (impresso ou offline)</label></div>
+        <div class="ci"><input type="checkbox" id="d7"><label for="d7">RioCard (comprar na chegada)</label></div>
+        <div class="ci"><input type="checkbox" id="d8"><label for="d8">Ingressos pré-comprados (Cristo, Pão de Açúcar)</label></div>
+        <div class="ci"><input type="checkbox" id="d9"><label for="d9">Contato de emergência anotado</label></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section class="sec sec-creme2" id="planner">
+  <div class="wrap">
+    <span class="lbl">15 — Planner financeiro</span>
+    <h2 class="h">Planejamento antes e durante a viagem</h2>
+    <p style="font-size:.83rem;color:var(--texto2);margin-bottom:1.5rem;line-height:1.7;">Organize quanto juntar por mês e quanto gastar por dia. Edite os valores para personalizar conforme seu orçamento real.</p>
+
+    <div class="meta-boxes">
+      <div class="meta-box"><p class="m-prazo">Em 12 meses</p><p class="m-val">≈ R$ 250/mês</p><p class="m-desc">Meta total: R$ 3.000/pessoa. Tranquilo, com reserva de emergência.</p></div>
+      <div class="meta-box"><p class="m-prazo">Em 6 meses</p><p class="m-val">≈ R$ 500/mês</p><p class="m-desc">Meta total: R$ 3.000/pessoa. Passagem + hotel + passeios + alimentação.</p></div>
+      <div class="meta-box"><p class="m-prazo">Em 3 meses</p><p class="m-val">≈ R$ 1.000/mês</p><p class="m-desc">Viável cortando gastos supérfluos. Compre passagem logo para pegar promoção.</p></div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(200,146,42,.2);">Orçamento detalhado — 7 dias por pessoa</h3>
+    <table class="planner-table">
+      <thead><tr><th>Categoria</th><th>Estimativa (R$)</th><th>Meu orçamento</th><th>Gasto real</th></tr></thead>
+      <tbody>
+        <tr><td>Passagem aérea (ida + volta)</td><td>R$ 400–900</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Traslado aeroporto → hotel</td><td>R$ 30–80</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Hospedagem (7 noites, sua parte)</td><td>R$ 560–1.330</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Cristo Redentor (trem)</td><td>R$ 87</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Pão de Açúcar (bondinho)</td><td>R$ 155</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Demais ingressos e atrações</td><td>R$ 190</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Alimentação (7 dias)</td><td>R$ 735–1.260</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Transporte local (metrô + Uber)</td><td>R$ 350–600</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Souvenirs e compras</td><td>R$ 150–300</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Vida noturna e lazer</td><td>R$ 70–105</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr><td>Reserva de emergência</td><td>R$ 300</td><td><input type="number" placeholder="0"></td><td><input type="number" placeholder="0"></td></tr>
+        <tr class="total-row"><td>Total estimado por pessoa</td><td>R$ 2.900–4.500</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="planner-note">Edite os campos "Meu orçamento" antes de viajar e "Gasto real" durante a viagem para acompanhar seu saldo.</p>
+
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);margin:2rem 0 1rem;padding-bottom:.5rem;border-bottom:1px solid rgba(200,146,42,.2);">Como economizar no Rio</h3>
+    <div class="eco-grid">
+      <div class="eco-item"><h5>Passagens</h5><p>Compre com 3–6 meses de antecedência. Terças e quartas têm voos mais baratos.</p></div>
+      <div class="eco-item"><h5>Museus gratuitos</h5><p>Planeje visitar museus em seus dias gratuitos — economize até R$ 50 por pessoa por dia.</p></div>
+      <div class="eco-item"><h5>Transporte</h5><p>Use metrô ao máximo — economiza muito versus Uber, especialmente na Zona Sul.</p></div>
+      <div class="eco-item"><h5>Alimentação</h5><p>PF no almoço em restaurante por kg: R$ 30–40 e é farto. Jantar em botecos é barato e autêntico.</p></div>
+      <div class="eco-item"><h5>Praias</h5><p>Copa e Ipanema são 100% gratuitas. Só pague cadeira se quiser conforto extra.</p></div>
+      <div class="eco-item"><h5>Fora de temporada</h5><p>Junho–agosto: preços de hotel até 40% menores que janeiro e Carnaval.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="sec sec-terracota" style="text-align:center;">
+  <div class="wrap">
+    <span class="lbl" style="color:rgba(245,236,215,.6);">Gostou do que viu?</span>
+    <h2 class="h" style="color:var(--creme);margin-bottom:1rem;">Quer um roteiro personalizado para o Rio?</h2>
+    <p style="font-size:.95rem;color:rgba(245,236,215,.75);max-width:500px;margin:0 auto 2rem;line-height:1.7;">N�s montamos um roteiro sob medida para o seu perfil � com os lugares certos, na ordem certa, sem perder tempo.</p>
+    <a href="index.html#contato" style="display:inline-block;background:var(--creme);color:var(--terracota);padding:1rem 2.5rem;text-decoration:none;font-weight:700;font-size:.85rem;letter-spacing:2px;text-transform:uppercase;border-radius:2px;">Quero meu roteiro do Rio</a>
+  </div>
+</section>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">RUTA</div>
+  <p class="footer-tagline">Roteiros personalizados de viagem</p>
+  <div class="footer-contact">
+    <a href="tel:5519981809181">(19) 98180-9181</a>
+    <a href="mailto:marceloborgesv4@gmail.com">marceloborgesv4@gmail.com</a>
+    <a href="https://rutaconcierge.netlify.app">rutaconcierge.com</a>
+  </div>
+  <p class="footer-copy">© 2026 Ruta Concierge — Todos os direitos reservados</p>
+  <p class="footer-hint">Para salvar como PDF: Ctrl+P → Salvar como PDF → desmarque "Cabeçalhos e rodapés"</p>
+</footer>
+
+<script>
+document.querySelectorAll('.ci input[type="checkbox"]').forEach(cb => {
+  if(localStorage.getItem('ruta_'+cb.id)==='true') cb.checked=true;
+  cb.addEventListener('change',()=>localStorage.setItem('ruta_'+cb.id,cb.checked));
+});
+
+function toggleIndice() {
+  const body = document.getElementById('indiceBody');
+  const btn = document.getElementById('indiceToggle');
+  body.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+</script>
+</body>
+</html>
+
+
+
+
+
